@@ -7,6 +7,10 @@
   "description": "Composable React components with CSS Modules.",
   "author": "Digital River Experience Engineering (https://github.com/orgs/DigitalRiver/teams/experience-engineering)",
   "main": "./lib",
+  "scripts": {
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
   "bugs": {
     "url": "https://github.com/DigitalRiver/react-atlas/issues"
   },
@@ -25,7 +29,8 @@
     "react-atlas-core": "^0.0.10",
     "react-atlas-default-theme": "^0.0.10",
     "react-css-modules": "^4.1.0",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "styled-components": "^1.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -43,6 +48,7 @@
     "cross-env": "^2.0.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "0.10.1",
     "glob": "^7.0.3",
     "postcss": "^5.0.21",
     "postcss-modules-extract-imports": "^1.0.0",
@@ -55,7 +61,9 @@
     "react-addons-test-utils": "^15.0.2",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.0"
+    "url-loader": "0.5.8",
+    "webpack": "^1.13.0",
+    "react-styleguidist": "5.0.0-rc.1"
   },
   "repository": "https://github.com/DigitalRiver/react-atlas/tree/master/packages/react-atlas"
 }

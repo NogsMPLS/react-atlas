@@ -1,5 +1,50 @@
 import React, { PropTypes } from "react";
-import cx from 'classNames';
+import styled from 'styled-components';
+
+const AvatarContainer = styled.div`
+  border-radius: 50%;
+  background-color: #aaa;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2.4rem;
+`;
+
+const Letter = styled.span`
+  display: block;
+  width: 100%;
+  line-height: 3rem;
+`;
+
+const Image = styled.img`
+  border-radius: 50%;
+  background-color: transparent;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  background-position: center;
+  background-size: cover;
+`;
+
+// const Svg = styled.svg`
+//   width: 2rem;
+//   height: 3rem;
+//   line-height: 3rem;
+//   fill: currentColor;
+// `;
+//
+// const Icon = styled.i`
+//   width: 2rem;
+//   height: 3rem;
+//   line-height: 3rem;
+//   fill: currentColor;
+// `;
 
 /**
  * Avatar component creates a circular area where an image, letter or icon/glyphicon can be presented. Great for user profiles and lists.
@@ -43,7 +88,7 @@ export default class Avatar extends React.Component {
     let { children, icon, title } = this.props;
     let kids = children;
     if (React.Children.count(children) === 1 && typeof children === "string") {
-      kids = <span styleName={cx("letter")}>{children[0]}</span>;
+      kids = <Letter className="ra_avatar_letter">{children[0]}</Letter>;
     }
 
     let avatar = null;
@@ -51,11 +96,11 @@ export default class Avatar extends React.Component {
 
     if (typeof image === "string") {
       avatar = 
-        <img
+        <Image
           src={image}
           title={title}
           onError={this.handleBadImage.bind(this)}
-          styleName={cx("image")}
+          className="ra_avatar_image"
         />
       ;
     } else if (image) {
@@ -63,14 +108,14 @@ export default class Avatar extends React.Component {
     } else if (icon) {
       avatar = icon;
     } else if (title) {
-      avatar = <span styleName={cx("letter")}>{title[0]}</span>;
+      avatar = <Letter className="ra_avatar_letter">{title[0]}</Letter>;
     }
 
     return (
-      <div styleName={cx("avatar")}>
+      <AvatarContainer className="ra_avatar_container">
         {kids}
         {avatar}
-      </div>
+      </AvatarContainer>
     );
   }
 }
@@ -104,48 +149,4 @@ Avatar.propTypes = {
     * A URL to a image that is displayed when the main image fails to load.
     */
   "defaultImage": PropTypes.string
-};
-
-Avatar.styleguide = {
-  "category": "Avatar",
-  "index": "2.1",
-  "example": 
-    `
-   <section>
-     <h5>Avatars</h5>
-     {/* background color change */}
-     <Avatar style={{backgroundColor: 'deepskyblue'}} >
-       <i className="fa fa-github"></i>
-     </Avatar>
-     {/* title prop gets truncated to 1st letter */}
-     <Avatar title="Nathan" />
-     {/* icon beats title */}
-     <Avatar title="Nathan" icon={<i className="fa fa-github"></i>} />
-     {/* image beats icon */}
-     <Avatar
-       icon={<i className="fa fa-github"></i>}
-       image="cat.jpg"
-     />
-     {/* image beats title */}
-     <Avatar title="Javier" image="cat.jpg" />
-     {/* child beats parameters */}
-     <Avatar title="Nathan" image="cat.jpg">
-       <i className="fa fa-github"></i>
-     </Avatar>
-     <Avatar title="Nathan" icon={<i className="fa fa-github"></i>}>
-       <img src="cat.jpg"/>
-     </Avatar>
-     {/* image beats defaultImage */}
-     <Avatar image="nature.jpg" defaultImage="cat.jpg" />
-     {/* defaultImage beats title */}
-     <Avatar title="Javier" defaultImage="nature.jpg" />
-     {/* defaultImage will replace a image that fails to load */}
-     <Avatar image="badImage.jpg" defaultImage="chillgirl.jpeg" />
-     {/* child string gets truncated to 1st letter */}
-     <Avatar>Nathan</Avatar>
-     {/* child should be <i>, <svg>, <img>, or string */}
-     <Avatar><i className="fa fa-github"></i></Avatar>
-   </section>
-   `
-  
 };

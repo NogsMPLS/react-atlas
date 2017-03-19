@@ -9,17 +9,9 @@
     "format": "prettier packages/react-atlas-core/src/**/*.js packages/react-atlas-core/src/**/**/*.js packages/react-atlas/src/**/*.js packages/react-atlas-default-theme/src/**/*.js --write",
     "lint": "eslint packages/react-atlas-core/src/**/*.js packages/react-atlas-core/src/**/**/*.js packages/react-atlas/src/**/*.js packages/react-atlas-default-theme/src/**/*.js --fix",
     "format-lint": "npm run format && npm run lint",
-    "docs": "cross-env NODE_ENV=development rcs \"./packages/react-atlas/src/**/*.js\" -s \"./packages/react-atlas-default-theme/src/**/*.js\" -v -c ./docsConfig.js -d",
-    "lerna:init": "lerna init",
-    "lerna:bootstrap": "lerna bootstrap",
-    "lerna:updated": "lerna updated",
-    "lerna:publish": "lerna publish",
-    "packages:install": "node installPackageDeps.js",
-    "packages:build": "node buildPackages.js",
-    "pages": "npm run pages:build && npm run pages:deploy && rimraf ./styleguide",
-    "pages:build": "cross-env NODE_ENV=production rcs \"./packages/react-atlas-core/src/**/*.js\" -s \"./packages/react-atlas-default-theme/src/**/*.js\" -r /react-atlas -v -c ./docsConfig.js",
-    "pages:deploy": "gh-pages -d ./styleguide/src -r https://github.com/DigitalRiver/react-atlas.git -b gh-pages",
-    "setup": "npm run packages:install && npm run lerna:init && npm run lerna:bootstrap && npm run packages:build"
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "styleguide:deploy": "gh-pages -d ./styleguide -r https://github.com/DigitalRiver/react-atlas.git -b gh-pages",
   },
   "jest": {
     "collectCoverageFrom": [
@@ -46,10 +38,10 @@
     "react-dom": "^15.4.2",
     "react-addons-css-transition-group": "^15.0.2",
     "normalize.css": "^4.1.1",
-    "react-autosuggest": "^3.7.3"
+    "react-autosuggest": "^3.7.3",
+    "styled-components": "1.4.4"
   },
   "devDependencies": {
-    "react-atlas-new-theme": "file:C:/dev/react-atlas/packages/react-atlas-new-theme",
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.7.7",
     "babel-core": "^6.7.7",
@@ -76,12 +68,12 @@
     "expect": "^1.19.0",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.10.1",
     "gh-pages": "^0.11.0",
     "glob": "^7.0.3",
     "identity-obj-proxy": "^3.0.0",
     "install": "^0.8.4",
     "jest": "^17.0.3",
-    "lerna": "2.0.0-beta.24",
     "npm": "^4.0.5",
     "postcss": "^5.0.21",
     "postcss-cssnext": "^2.5.2",
@@ -94,7 +86,9 @@
     "prettier": "^0.16.0",
     "react-a11y": "^0.3.3",
     "react-addons-test-utils": "^15.0.2",
-    "react-component-styleguide": "0.0.49"
+    "react-styleguidist": "5.0.0-rc.1",
+    "url-loader": "0.5.8",
+    "webpack": "^1.14.0"
   },
   "repository": {
     "type": "git",
