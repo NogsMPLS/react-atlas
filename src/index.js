@@ -1,2 +1,3 @@
 export Avatar from './Avatar/Avatar.js';
-export Avatar from './SecondaryAvatar/SecondaryAvatar.js';
+export SecondaryAvatar from './SecondaryAvatar/SecondaryAvatar.js';
+export BlueMainTheme from './BlueMainTheme/BlueMainTheme.js';

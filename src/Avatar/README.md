@@ -47,6 +47,9 @@ Avatar Examples
 
     <p>A 'primary' square avatar</p>
     <Avatar square primary><i className="fa fa-github"></i></Avatar>
+
+     <p>A 'primary' square that get background overriden with yellow inline-style but with dark text color avatar</p>
+    <Avatar square primary dark style={{"backgroundColor": "yellow"}}><i className="fa fa-github"></i></Avatar>
  </section>
 
 ```

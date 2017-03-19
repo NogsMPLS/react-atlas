@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const AvatarContainer = styled.div`
   border-radius: ${(props) => props.theme.avatarRadius || props.square ? '0%' : '50%'};
-  background-color:  ${(props) => props.theme.main || props.primary ? 'green' : '#aaa'};
+  background-color:  ${({theme, primary}) => theme.main ? theme.main : primary ? 'green' : '#aaa'};
   color: ${(props) => props.theme.textColor || props.dark ? '#000' : '#fff'};
   position: relative;
   display: inline-block;
@@ -112,7 +112,6 @@ export default class Avatar extends React.Component {
     } else if (title) {
       avatar = <Letter className="ra_avatar_letter">{title[0]}</Letter>;
     }
-
     return (
       <AvatarContainer className="ra_avatar_container" style={this.props.style} {...this.props}>
         {kids}
@@ -125,7 +124,7 @@ export default class Avatar extends React.Component {
 Avatar.propTypes = {
   /**
     * Children should be either a string, an icon/glyphicon, or an image tag.
-    * @examples "SomeName", <SomeIcon />, <img src="/path/to/image.jpg"/>
+    * @example "SomeName", <SomeIcon />, <img src="/path/to/image.jpg"/>
     */
   "children": PropTypes.node,
   /**
@@ -139,12 +138,12 @@ Avatar.propTypes = {
   "icon": PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /**
     * Path to an image
-    * @examples "http://path.to/an/image.jpg"
+    * @example "http://path.to/an/image.jpg"
     */
   "image": PropTypes.string,
   /**
     * A string. Avatar will use First letter of the string.
-    * @examples "Nathan" will output "N"
+    * @example "Nathan" will output "N"
     */
   "title": PropTypes.string,
   /**
