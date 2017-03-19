@@ -2,7 +2,7 @@ Avatar Examples
 
 ```
 <section>
-    <p>background color change</p>
+    <p>background color change with style prop</p>
     <Avatar style={{backgroundColor: 'deepskyblue'}}>
         <i className="fa fa-github"></i>
     </Avatar>

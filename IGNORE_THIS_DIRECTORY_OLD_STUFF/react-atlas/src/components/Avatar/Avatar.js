@@ -111,9 +111,9 @@ export default class Avatar extends React.Component {
     } else if (title) {
       avatar = <Letter className="ra_avatar_letter">{title[0]}</Letter>;
     }
-
+    console.log('this.props.style: ', this.props.style);
     return (
-      <AvatarContainer className="ra_avatar_container">
+      <AvatarContainer className="ra_avatar_container" style={this.props.style}>
         {kids}
         {avatar}
       </AvatarContainer>

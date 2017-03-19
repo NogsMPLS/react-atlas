@@ -6,12 +6,12 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "format": "prettier packages/react-atlas-core/src/**/*.js packages/react-atlas-core/src/**/**/*.js packages/react-atlas/src/**/*.js packages/react-atlas-default-theme/src/**/*.js --write",
-    "lint": "eslint packages/react-atlas-core/src/**/*.js packages/react-atlas-core/src/**/**/*.js packages/react-atlas/src/**/*.js packages/react-atlas-default-theme/src/**/*.js --fix",
+    "format": "prettier src/**/*.js --write",
+    "lint": "eslint src/**/*.js --fix",
     "format-lint": "npm run format && npm run lint",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "styleguide:deploy": "gh-pages -d ./styleguide -r https://github.com/NogsMPLS/react-atlas.git -b gh-pages"
+    "styleguide:deploy": "gh-pages -d ./styleguide -r git@github.com:NogsMPLS/react-atlas.git -b gh-pages"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -69,7 +69,7 @@
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.10.1",
-    "gh-pages": "^0.11.0",
+    "gh-pages": "^0.12.0",
     "glob": "^7.0.3",
     "identity-obj-proxy": "^3.0.0",
     "install": "^0.8.4",

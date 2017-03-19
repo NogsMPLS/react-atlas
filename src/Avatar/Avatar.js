@@ -113,7 +113,7 @@ export default class Avatar extends React.Component {
     }
 
     return (
-      <AvatarContainer className="ra_avatar_container">
+      <AvatarContainer className="ra_avatar_container" style={this.props.style}>
         {kids}
         {avatar}
       </AvatarContainer>

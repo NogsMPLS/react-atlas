@@ -4,6 +4,7 @@ module.exports = {
     title: "React Atlas Styleguide",
     components: "src/**/!(*.test|index).js",
     assetsDir: "docsAssets",
+    showCode: true,
     require: [
         path.join(__dirname, 'docsAssets/font-awesome.min.css'),
     ],
