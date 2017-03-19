@@ -11,7 +11,7 @@
     "format-lint": "npm run format && npm run lint",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "styleguide:deploy": "gh-pages -d ./styleguide -r https://github.com/DigitalRiver/react-atlas.git -b gh-pages",
+    "styleguide:deploy": "gh-pages -d ./styleguide -r https://github.com/NogsMPLS/react-atlas.git -b gh-pages"
   },
   "jest": {
     "collectCoverageFrom": [
