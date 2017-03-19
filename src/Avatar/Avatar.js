@@ -2,9 +2,9 @@ import React, { PropTypes } from "react";
 import styled from 'styled-components';
 
 const AvatarContainer = styled.div`
-  border-radius: 50%;
-  background-color: #aaa;
-  color: #fff;
+  border-radius: ${(props) => props.theme.avatarRadius || props.square ? '0%' : '50%'};
+  background-color:  ${(props) => props.theme.main || props.primary ? 'green' : '#aaa'};
+  color: ${(props) => props.theme.textColor || props.dark ? '#000' : '#fff'};
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -36,7 +36,7 @@ const Letter = styled.span`
 `;
 
 const Image = styled.img`
-  border-radius: 50%;
+  border-radius: ${(props) => props.theme.avatarRadius || props.square ? '0%' : '50%'};
   background-color: transparent;
   position: absolute;
   display: block;
@@ -102,6 +102,7 @@ export default class Avatar extends React.Component {
           title={title}
           onError={this.handleBadImage.bind(this)}
           className="ra_avatar_image"
+          square={this.props.square}
         />
       ;
     } else if (image) {
@@ -113,7 +114,7 @@ export default class Avatar extends React.Component {
     }
 
     return (
-      <AvatarContainer className="ra_avatar_container" style={this.props.style}>
+      <AvatarContainer className="ra_avatar_container" style={this.props.style} {...this.props}>
         {kids}
         {avatar}
       </AvatarContainer>

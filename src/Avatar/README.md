@@ -31,7 +31,7 @@ Avatar Examples
     </Avatar>
 
     <p>image beats defaultImage</p>
-    <Avatar image="nature.jpg" defaultImage="cat.jpg" />
+    <Avatar square image="nature.jpg" defaultImage="cat.jpg" />
 
     <p>defaultImage beats title</p>
     <Avatar title="Javier" defaultImage="nature.jpg" />
@@ -44,6 +44,9 @@ Avatar Examples
 
     <p>child should be i, svg, img, or string </p>
     <Avatar><i className="fa fa-github"></i></Avatar>
+
+    <p>A 'primary' square avatar</p>
+    <Avatar square primary><i className="fa fa-github"></i></Avatar>
  </section>
 
 ```
